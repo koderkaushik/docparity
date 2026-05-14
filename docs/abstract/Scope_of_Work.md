@@ -1,0 +1,3 @@
+# Scope of Work
+
+Scope of this dissertation is to empirically evaluate the effectiveness of large language models for detecting code-documentation drift in Python projects, by constructing a labeled dataset and systematically comparing LLM-based prompting strategies against non-LLM baselines across syntactic and semantic drift types using precision, recall, F1, and statistical significance testing.

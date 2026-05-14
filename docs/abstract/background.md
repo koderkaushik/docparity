@@ -1,0 +1,7 @@
+# Background
+
+Software systems evolve rapidly, with code changing far more frequently than the documentation that describes it. Studies have consistently shown that documentation drift — the divergence between what code does and what its documentation describes — is a widespread and costly problem. Outdated or inconsistent documentation misleads developers, introduces bugs, increases onboarding time, and erodes trust in the documentation itself.
+
+Existing tools for detecting code-documentation inconsistencies, such as darglint and pydocstyle, operate primarily at the syntactic level — comparing parameter names, types, and return signatures against what is documented. While effective at catching signature mismatches, these tools are fundamentally unable to detect semantic drift, where the documented behavior diverges from the actual runtime logic of the code. This gap leaves a significant class of inconsistencies undetected by current automated approaches.
+
+The emergence of large language models (LLMs) presents a new opportunity. LLMs can parse both natural language and source code, reason about behavioral intent, and identify mismatches that require understanding beyond structural comparison. However, their effectiveness for documentation drift detection has not been empirically evaluated against existing non-LLM baselines. This research addresses that gap by systematically comparing LLM-based and non-LLM approaches across both syntactic and semantic drift types in Python projects.
