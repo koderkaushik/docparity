@@ -12,7 +12,7 @@ DocParity is a dissertation research project evaluating LLM-based documentation 
 | Decision | Choice | Rationale |
 |---|---|---|
 | LLM provider | Ollama (local open-source models) | Cost-effective for dissertation, factory pattern allows adding providers later |
-| Initial models | 1-2 models (Llama 3, Mistral) | Start small, extend later |
+| Initial models | Start with local Ollama models (Llama 3, Mistral), extend to Ollama cloud models (GLM, Kimi) | Factory pattern supports adding providers; start small, extend later |
 | Repos | 10-15 popular Python repos from strategy doc | Proven, stable, good docstring coverage |
 | Python version | 3.11+ | Modern syntax, wide library support |
 | Package manager | uv | Fast, lockfile support, reproducibility |
@@ -104,6 +104,7 @@ class Entry:
 class DriftDetails:
     type: DriftType
     description: str
+    severity: str | None                  # optional: "low", "medium", "high"
     missing_params: list[str]             # params in code but not docs
     extra_params_in_doc: list[str]        # params in docs but not code
     type_mismatches: list[dict]            # param/return type conflicts
@@ -144,6 +145,7 @@ For each instance, extracts the function, its docstring, and labels the drift ty
 
 **Syntactic mutators** (applied to docstring only):
 - Remove a parameter from the Args section
+- Rename a parameter in the docstring (e.g., `x` becomes `x_coord`)
 - Change a parameter's documented type
 - Add a phantom parameter not in the signature
 - Change the documented return type
@@ -200,6 +202,7 @@ Adding a new provider means implementing one class.
 
 ```yaml
 providers:
+  # Local Ollama models
   - name: ollama-llama3
     provider: ollama
     model: llama3:8b
@@ -207,6 +210,15 @@ providers:
   - name: ollama-mistral
     provider: ollama
     model: mistral:7b
+    temperature: 0
+  # Ollama cloud models
+  - name: ollama-glm
+    provider: ollama
+    model: glm4:9b
+    temperature: 0
+  - name: ollama-kimi
+    provider: ollama
+    model: kimi:latest
     temperature: 0
 ```
 
