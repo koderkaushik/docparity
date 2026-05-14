@@ -1,0 +1,19 @@
+providers:
+  # Local Ollama models
+  - name: ollama-llama3
+    provider: ollama
+    model: llama3:8b
+    temperature: 0
+  - name: ollama-mistral
+    provider: ollama
+    model: mistral:7b
+    temperature: 0
+  # Ollama cloud models
+  - name: ollama-glm
+    provider: ollama
+    model: glm4:9b
+    temperature: 0
+  - name: ollama-kimi
+    provider: ollama
+    model: kimi:latest
+    temperature: 0

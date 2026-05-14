@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+dist/
+.venv/
+data/repos/
+data/entries/
+data/source_files/
+data/manifest.json
+results/*.csv
+results/*.json

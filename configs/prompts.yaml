@@ -1,0 +1,47 @@
+zero_shot:
+  system: "You are a documentation drift detector. Analyze Python functions and their docstrings to identify inconsistencies."
+  template: |
+    Compare the following Python function code with its docstring.
+    Identify any inconsistencies between what the code does and what the docstring describes.
+
+    Code:
+    {code}
+
+    Docstring:
+    {docstring}
+
+    Respond in JSON: {{"drift_type": "syntactic|semantic|no-drift", "description": "..."}}
+
+few_shot:
+  system: "You are a documentation drift detector. Analyze Python functions and their docstrings to identify inconsistencies."
+  template: |
+    Here are examples of documentation drift detection:
+    {examples}
+
+    Now analyze:
+    Code:
+    {code}
+
+    Docstring:
+    {docstring}
+
+    Respond in JSON: {{"drift_type": "syntactic|semantic|no-drift", "description": "..."}}
+
+chain_of_thought:
+  system: "You are a documentation drift detector. Analyze Python functions and their docstrings to identify inconsistencies."
+  template: |
+    Compare the following Python function code with its docstring.
+    Think step by step:
+    1. Extract the function signature (parameters, types, return type).
+    2. Extract the documented interface from the docstring.
+    3. Compare for syntactic mismatches.
+    4. Analyze whether the behavioral description matches the code logic.
+    5. Conclude with your assessment.
+
+    Code:
+    {code}
+
+    Docstring:
+    {docstring}
+
+    Respond in JSON: {{"drift_type": "syntactic|semantic|no-drift", "description": "...", "reasoning": "..."}}

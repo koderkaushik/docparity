@@ -1,0 +1,13 @@
+metrics:
+  - precision
+  - recall
+  - f1
+
+significance:
+  test: mcnemar
+  bootstrap_ci: true
+  bootstrap_samples: 10000
+  alpha: 0.05
+
+annotators: 2
+kappa_threshold: 0.61

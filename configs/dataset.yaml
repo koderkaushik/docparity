@@ -1,0 +1,39 @@
+repos:
+  - name: flask
+    url: https://github.com/pallets/flask.git
+  - name: requests
+    url: https://github.com/psf/requests.git
+  - name: scikit-learn
+    url: https://github.com/scikit-learn/scikit-learn.git
+  - name: fastapi
+    url: https://github.com/tiangolo/fastapi.git
+  - name: pandas
+    url: https://github.com/pandas-dev/pandas.git
+  - name: numpy
+    url: https://github.com/numpy/numpy.git
+  - name: matplotlib
+    url: https://github.com/matplotlib/matplotlib.git
+  - name: pytest
+    url: https://github.com/pytest-dev/pytest.git
+  - name: click
+    url: https://github.com/pallets/click.git
+  - name: django
+    url: https://github.com/django/django.git
+
+sizes:
+  real_total: 250
+  synthetic_total: 550
+  real_no_drift: 75
+  real_syntactic: 90
+  real_semantic: 85
+  synthetic_no_drift: 165
+  synthetic_syntactic: 190
+  synthetic_semantic: 195
+
+pilot:
+  enabled: true
+  size: 50
+  split:
+    no_drift: 10
+    syntactic: 20
+    semantic: 20
